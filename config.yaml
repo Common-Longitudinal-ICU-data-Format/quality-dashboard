@@ -1,0 +1,45 @@
+# =============================================================================
+# ICU Respiratory Failure Quality Dashboard — site configuration
+# =============================================================================
+# To run on your own site's data, change `clif_dir` (and `filetype` if your
+# tables are CSV), set `demo_mode.reanchor_dates: false`, then run:
+#
+#     python build_dashboard.py
+#
+# Relative paths are resolved from the folder this file lives in.
+# =============================================================================
+
+# Folder holding the CLIF 2.1 tables (clif_<table>.parquet or .csv)
+clif_dir: data/demo-data-2.1.0
+
+# parquet | csv
+filetype: parquet
+
+# File name prefix for tables (CLIF convention is "clif_", e.g. clif_adt.parquet)
+file_prefix: clif_
+
+# Shown in the dashboard header
+site_name: MIMIC-IV demo (CLIF 2.1)
+
+# Times are stored in UTC in CLIF; the dashboard groups days and months in this zone
+site_timezone: America/New_York
+
+# Restrict the analysis window (inclusive, site-local dates). Leave blank for all data.
+start_date:
+end_date:
+
+# Where the finished single-file dashboard is written
+output_html: dist/resp_quality_dashboard.html
+
+# Metric definitions and every analytic choice live here
+decisions_file: decisions.yaml
+
+# -----------------------------------------------------------------------------
+# Demo-only settings (MIMIC-IV shifts dates to 2110-2201)
+# -----------------------------------------------------------------------------
+demo_mode:
+  # true: shift each patient's dates (in whole weeks, so weekday and time of day are kept)
+  # into the window below so monthly trends are readable. Set false for real site data.
+  reanchor_dates: true
+  window_start: 2023-01-01
+  window_end: 2025-12-31

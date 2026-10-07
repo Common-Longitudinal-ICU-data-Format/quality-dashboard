@@ -1,0 +1,15 @@
+# Built dashboards embed patient-level rows: never commit site builds.
+# The committed example in demo/ is built from the public MIMIC-IV CLIF demo data.
+/dist/
+*.html
+!web/dist/app_template.html
+!demo/resp_quality_dashboard_demo.html
+
+# Site data: keep real CLIF tables out of git (the public MIMIC demo is the only exception)
+/data/*
+!/data/demo-data-2.1.0/
+
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
