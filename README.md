@@ -29,7 +29,7 @@ filetype: parquet                       # or csv
 site_name: My Hospital ICUs
 site_timezone: America/Chicago
 demo_mode:
-  reanchor_dates: false                 # must be false for real data
+  reanchor_dates: false                 # must be false for real data 
 ```
 
 Or override the folder once without editing the file:
